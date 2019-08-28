@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_jfinal_cms" default="compile.module.jfinal_cms">
+  <dirname property="module.jfinal_cms.basedir" file="${ant.file.module_jfinal_cms}"/>
+  
+  <property name="module.jdk.home.jfinal_cms" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jfinal_cms" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jfinal_cms" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jfinal_cms" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="jfinal_cms.output.dir" value="${module.jfinal_cms.basedir}/target/classes"/>
+  <property name="jfinal_cms.testoutput.dir" value="${module.jfinal_cms.basedir}/target/test-classes"/>
+  
+  <path id="jfinal_cms.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jfinal_cms.module.production.classpath">
+    <path refid="${module.jdk.classpath.jfinal_cms}"/>
+    <path refid="library.maven:_com.jfinal:jfinal:4.2.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:sources:4.2.classpath"/>
+    <path refid="library.maven:_c3p0:c3p0:0.9.1.2.classpath"/>
+    <path refid="library.maven:_javax.servlet:servlet-api:2.5.classpath"/>
+    <path refid="library.maven:_javax.servlet.jsp:jsp-api:2.2.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_commons-fileupload:commons-fileupload:1.3.1.classpath"/>
+    <path refid="library.maven:_de.ruedigermoeller:fst:1.58.classpath"/>
+    <path refid="library.maven:_net.sf.ehcache:ehcache:2.7.5.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.6.classpath"/>
+    <path refid="library.maven:_redis.clients:jedis:2.9.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath"/>
+    <path refid="library.maven:_com.ibeetl:beetl:2.7.11.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.4.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.28.classpath"/>
+    <path refid="library.maven:_org.antlr:antlr4-runtime:4.2.classpath"/>
+    <path refid="library.maven:_org.abego.treelayout:org.abego.treelayout.core:1.0.1.classpath"/>
+    <path refid="library.maven:_org.antlr:antlr4-annotations:4.2.classpath"/>
+    <path refid="library.maven:_com.jfinal:cos:26dec2008.classpath"/>
+    <path refid="library.maven:_com.aliyun.oss:aliyun-sdk-oss:2.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_org.jdom:jdom:1.1.classpath"/>
+    <path refid="library.maven:_net.sf.json-lib:json-lib:jdk15:2.4.classpath"/>
+    <path refid="library.maven:_commons-beanutils:commons-beanutils:1.8.0.classpath"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.2.1.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_net.sf.ezmorph:ezmorph:1.0.6.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.16.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath"/>
+  </path>
+  
+  <path id="jfinal_cms.runtime.production.module.classpath">
+    <pathelement location="${jfinal_cms.output.dir}"/>
+    <path refid="library.maven:_com.jfinal:jfinal:4.2.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:sources:4.2.classpath"/>
+    <path refid="library.maven:_c3p0:c3p0:0.9.1.2.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_commons-fileupload:commons-fileupload:1.3.1.classpath"/>
+    <path refid="library.maven:_de.ruedigermoeller:fst:1.58.classpath"/>
+    <path refid="library.maven:_redis.clients:jedis:2.9.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath"/>
+    <path refid="library.maven:_com.ibeetl:beetl:2.7.11.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.4.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.28.classpath"/>
+    <path refid="library.maven:_org.antlr:antlr4-runtime:4.2.classpath"/>
+    <path refid="library.maven:_org.abego.treelayout:org.abego.treelayout.core:1.0.1.classpath"/>
+    <path refid="library.maven:_org.antlr:antlr4-annotations:4.2.classpath"/>
+    <path refid="library.maven:_com.jfinal:cos:26dec2008.classpath"/>
+    <path refid="library.maven:_com.aliyun.oss:aliyun-sdk-oss:2.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_org.jdom:jdom:1.1.classpath"/>
+    <path refid="library.maven:_net.sf.json-lib:json-lib:jdk15:2.4.classpath"/>
+    <path refid="library.maven:_commons-beanutils:commons-beanutils:1.8.0.classpath"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.2.1.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_net.sf.ezmorph:ezmorph:1.0.6.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.16.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath"/>
+  </path>
+  
+  <path id="jfinal_cms.module.classpath">
+    <path refid="${module.jdk.classpath.jfinal_cms}"/>
+    <pathelement location="${jfinal_cms.output.dir}"/>
+    <path refid="library.maven:_com.jfinal:jfinal:4.2.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:sources:4.2.classpath"/>
+    <path refid="library.maven:_c3p0:c3p0:0.9.1.2.classpath"/>
+    <path refid="library.maven:_javax.servlet:servlet-api:2.5.classpath"/>
+    <path refid="library.maven:_javax.servlet.jsp:jsp-api:2.2.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_commons-fileupload:commons-fileupload:1.3.1.classpath"/>
+    <path refid="library.maven:_de.ruedigermoeller:fst:1.58.classpath"/>
+    <path refid="library.maven:_net.sf.ehcache:ehcache:2.7.5.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.6.classpath"/>
+    <path refid="library.maven:_redis.clients:jedis:2.9.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath"/>
+    <path refid="library.maven:_com.ibeetl:beetl:2.7.11.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.4.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.28.classpath"/>
+    <path refid="library.maven:_org.antlr:antlr4-runtime:4.2.classpath"/>
+    <path refid="library.maven:_org.abego.treelayout:org.abego.treelayout.core:1.0.1.classpath"/>
+    <path refid="library.maven:_org.antlr:antlr4-annotations:4.2.classpath"/>
+    <path refid="library.maven:_com.jfinal:cos:26dec2008.classpath"/>
+    <path refid="library.maven:_com.aliyun.oss:aliyun-sdk-oss:2.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_org.jdom:jdom:1.1.classpath"/>
+    <path refid="library.maven:_net.sf.json-lib:json-lib:jdk15:2.4.classpath"/>
+    <path refid="library.maven:_commons-beanutils:commons-beanutils:1.8.0.classpath"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.2.1.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_net.sf.ezmorph:ezmorph:1.0.6.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.16.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath"/>
+  </path>
+  
+  <path id="jfinal_cms.runtime.module.classpath">
+    <pathelement location="${jfinal_cms.testoutput.dir}"/>
+    <pathelement location="${jfinal_cms.output.dir}"/>
+    <path refid="library.maven:_com.jfinal:jfinal:4.2.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:sources:4.2.classpath"/>
+    <path refid="library.maven:_c3p0:c3p0:0.9.1.2.classpath"/>
+    <path refid="library.maven:_javax.servlet:servlet-api:2.5.classpath"/>
+    <path refid="library.maven:_javax.servlet.jsp:jsp-api:2.2.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_commons-fileupload:commons-fileupload:1.3.1.classpath"/>
+    <path refid="library.maven:_de.ruedigermoeller:fst:1.58.classpath"/>
+    <path refid="library.maven:_net.sf.ehcache:ehcache:2.7.5.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.6.classpath"/>
+    <path refid="library.maven:_redis.clients:jedis:2.9.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath"/>
+    <path refid="library.maven:_com.ibeetl:beetl:2.7.11.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.4.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.28.classpath"/>
+    <path refid="library.maven:_org.antlr:antlr4-runtime:4.2.classpath"/>
+    <path refid="library.maven:_org.abego.treelayout:org.abego.treelayout.core:1.0.1.classpath"/>
+    <path refid="library.maven:_org.antlr:antlr4-annotations:4.2.classpath"/>
+    <path refid="library.maven:_com.jfinal:cos:26dec2008.classpath"/>
+    <path refid="library.maven:_com.aliyun.oss:aliyun-sdk-oss:2.0.6.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_org.jdom:jdom:1.1.classpath"/>
+    <path refid="library.maven:_net.sf.json-lib:json-lib:jdk15:2.4.classpath"/>
+    <path refid="library.maven:_commons-beanutils:commons-beanutils:1.8.0.classpath"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.2.1.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_net.sf.ezmorph:ezmorph:1.0.6.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.16.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jfinal_cms">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jfinal_cms">
+    <patternset refid="excluded.from.module.jfinal_cms"/>
+  </patternset>
+  
+  <path id="jfinal_cms.module.sourcepath">
+    <dirset dir="${module.jfinal_cms.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jfinal_cms" depends="compile.module.jfinal_cms.production,compile.module.jfinal_cms.tests" description="Compile module jfinal_cms"/>
+  
+  <target name="compile.module.jfinal_cms.production" depends="register.custom.compilers" description="Compile module jfinal_cms; production classes">
+    <mkdir dir="${jfinal_cms.output.dir}"/>
+    <javac2 destdir="${jfinal_cms.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jfinal_cms}/javac">
+      <compilerarg line="${compiler.args.jfinal_cms}"/>
+      <bootclasspath refid="jfinal_cms.module.bootclasspath"/>
+      <classpath refid="jfinal_cms.module.production.classpath"/>
+      <src refid="jfinal_cms.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jfinal_cms"/>
+    </javac2>
+    
+    <copy todir="${jfinal_cms.output.dir}">
+      <fileset dir="${module.jfinal_cms.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jfinal_cms.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jfinal_cms.tests" depends="register.custom.compilers,compile.module.jfinal_cms.production" description="compile module jfinal_cms; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.jfinal_cms" description="cleanup module">
+    <delete dir="${jfinal_cms.output.dir}"/>
+    <delete dir="${jfinal_cms.testoutput.dir}"/>
+  </target>
+</project>
