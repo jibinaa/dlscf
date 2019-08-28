@@ -50,6 +50,7 @@ public class BeetlStrUtils  extends StrUtils{
 
 	/**
 	 * endWith
+	 *
 	 * 
 	 * 2014年8月29日 下午1:40:31 flyfox 330627517@qq.com
 	 * 
